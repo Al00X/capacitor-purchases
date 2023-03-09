@@ -42,7 +42,7 @@
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build",
-    "postinstall": "cd node_modules/@capgo/capacitor-purchases && npm i && npm run build"
+    "prepare": "yarn build || npm run build"
   },
   "devDependencies": {
     "@capacitor/android": "^4.4.0",
