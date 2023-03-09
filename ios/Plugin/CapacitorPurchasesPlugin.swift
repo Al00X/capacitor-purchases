@@ -77,7 +77,7 @@ public class CapacitorPurchasesPlugin: CAPPlugin, PurchasesDelegate {
                 }
                 Purchases.shared.purchase(package: package!) { (_, customerInfo, error, _) in
                     if (error) != nil {
-                        call.reject("Restore failed", nul, error)
+                        call.reject("Purchase failed", nil, error)
                     } else {
                         let purchase = customerInfo?.dictionary
                         if purchase != nil {
@@ -96,7 +96,7 @@ public class CapacitorPurchasesPlugin: CAPPlugin, PurchasesDelegate {
     @objc func restorePurchases(_ call: CAPPluginCall) {
         Purchases.shared.restorePurchases { customerInfo, error in
             if (error) != nil {
-                call.reject("Restore failed")
+                call.reject("Restore failed", nil, error)
             } else {
                 let purchase = customerInfo?.dictionary
                 if purchase != nil {
